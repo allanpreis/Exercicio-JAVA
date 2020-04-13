@@ -1,3 +1,5 @@
+package java_classless;
+
 public class SAIDA_ASTERISCO {
 
     public static void main(String[] args) {

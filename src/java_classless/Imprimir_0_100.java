@@ -1,3 +1,5 @@
+package java_classless;
+
 public class Imprimir_0_100 {
 
     public static void main(String[] args) {

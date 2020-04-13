@@ -1,3 +1,5 @@
+package java_classless;
+
 import java.util.Scanner;
 
 public class PROGRAMA_CALCULOS {

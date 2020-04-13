@@ -1,3 +1,5 @@
+package java_classless;
+
 import java.util.Random;
 
 public class Desafio {
