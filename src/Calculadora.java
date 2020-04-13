@@ -2,105 +2,38 @@ import java.util.Scanner;
 
 public class Calculadora {
 
-    
-    public int soma(int n1, int n2) {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
 
-        return n1 + n2;
+        System.out.println("Informe um numero");
+    int numeroInformado = scanner.nextInt();
 
+        System.out.println("Qual a operação? (+,-,*,/)");
+    String operacao = scanner.next();
+
+        System.out.println("Informe outro número");
+    int outroNumeroInformado = scanner.nextInt();
+
+    int resultado = 0;
+
+        if (operacao.equals("+")) {
+        resultado = numeroInformado + outroNumeroInformado;
     }
-
-    public int subtracao(int n1, int n2) {
-
-        return n1 - n2;
-
+        if (operacao.equals("-")) {
+        resultado = numeroInformado - outroNumeroInformado;
     }
-
-    public int divisao(int n1, int n2) {
-
-        return n1 / n2;
-
+        if (operacao.equals("*")) {
+        resultado = numeroInformado * outroNumeroInformado;
     }
-
-    public int multiplicacao(int n1, int n2) {
-
-        return n1 * n2;
-
-    }
-
-
-    public static void main(String args[]) {
-
-        Calculadora cal = new Calculadora();
-
-        int opcao = 5;
-        int n1;
-        int n2;
-
-        Scanner input = new Scanner(System.in);
-
-        System.out.println("Escolha qual operação deseja executar:");
-        System.out.println("1 --> Soma");
-        System.out.println("2 --> Subtração");
-        System.out.println("3 --> Multiplicação");
-        System.out.println("4 --> Divisão");
-
-        opcao = input.nextInt();
-
-        while (opcao != 0) {
-
-            if (opcao == 1) {
-
-                Scanner input1 = new Scanner(System.in);
-
-                System.out.println("Primeiro valor: ");
-                n1 = input1.nextInt();
-                System.out.println("Segundo valor: ");
-                n2 = input1.nextInt();
-
-
-                int operacao = cal.soma(n1, n2);
-
-                System.out.println(operacao);
-                break;
-            }
-            if (opcao == 2) {
-
-                Scanner input1 = new Scanner(System.in);
-
-                System.out.println("Primeiro valor: ");
-                n1 = input1.nextInt();
-                System.out.println("Segundo valor: ");
-                n2 = input1.nextInt();
-                int operacao = cal.subtracao(n1, n2);
-
-                System.out.println(operacao);
-
-                break;
-            }
-            if (opcao == 3) {
-                Scanner input1 = new Scanner(System.in);
-
-                System.out.println("Primeiro valor: ");
-                n1 = input1.nextInt();
-                System.out.println("Segundo valor: ");
-                n2 = input1.nextInt();
-                int operacao = cal.multiplicacao(n1, n2);
-
-                System.out.println(operacao);
-                break;
-            }
-            if (opcao == 4) {
-                Scanner input1 = new Scanner(System.in);
-
-                System.out.println("Primeiro valor: ");
-                n1 = input1.nextInt();
-                System.out.println("Segundo valor: ");
-                n2 = input1.nextInt();
-                int operacao = cal.divisao(n1, n2);
-
-                System.out.println(operacao);
-                break;
-            }
+        if (operacao.equals("/")) {
+        if (outroNumeroInformado == 0) {
+            System.out.println("Operação não permitida");
+        } else {
+            resultado = numeroInformado / outroNumeroInformado;
         }
     }
+
+        System.out.println("O resultado é " + resultado);
+
+}
 }
