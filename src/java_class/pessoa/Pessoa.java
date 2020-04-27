@@ -1,4 +1,4 @@
-package java_class;
+package java_class.pessoa;
 
 import java.time.LocalDate;
 
