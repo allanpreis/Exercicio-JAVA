@@ -6,7 +6,6 @@ public class CaixaEletronico {
 
     private Conta contaAtiva;
 
-
     public float sacar(float valor){
 
         if(valor > contaAtiva.getSaldo()){
@@ -45,4 +44,25 @@ public class CaixaEletronico {
     public void setContaAtiva(Conta contaAtiva) {
         this.contaAtiva = contaAtiva;
     }
+    public boolean senhaCorreta(String senhaDigitada){
+        if(!contaAtiva.getSenha().equals(senhaDigitada)){
+            System.out.println("Senha inválida");
+            return false;
+        } else {
+            System.out.println("Bem-vindo "+contaAtiva.getTitular().getNome());
+            System.out.println("Entrando....");
+            return true;
+        }
+    }
+
+    public void sair(){
+        System.out.println("Saindo...");
+        contaAtiva = null;
+    }
+
+    public boolean ativo(){
+        return contaAtiva != null;
+    }
+
+
 }

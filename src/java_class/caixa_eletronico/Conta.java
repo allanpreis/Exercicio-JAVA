@@ -1,10 +1,13 @@
 package java_class.caixa_eletronico;
 
+import java.util.Random;
+
 public class Conta {
 
+    Random numero = new Random();
     private Aluno titular;
     private float saldo;
-    private String numeroConta;
+    private int numeroConta;
     private String senha;
 
     public Aluno getTitular() {
@@ -23,12 +26,12 @@ public class Conta {
         this.saldo = saldo;
     }
 
-    public String getNumeroConta() {
+    public int getNumeroConta() {
         return numeroConta;
     }
 
-    public void setNumeroConta(String numeroConta) {
-        this.numeroConta = numeroConta;
+    public Conta(){
+        this.numeroConta = numero.nextInt(99999);
     }
 
     public String getSenha() {
@@ -38,4 +41,5 @@ public class Conta {
     public void setSenha(String senha) {
         this.senha = senha;
     }
+
 }
