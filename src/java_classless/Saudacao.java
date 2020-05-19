@@ -13,6 +13,5 @@ public class Saudacao {
 
         System.out.println("Olá "+ nome);
 
-
     }
 }
