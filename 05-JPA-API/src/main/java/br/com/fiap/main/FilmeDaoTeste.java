@@ -25,7 +25,7 @@ public class FilmeDaoTeste {
         FilmeDao dao = new FilmeDaoImpl(em);
 
         //Cadastrar
-        Filme filme = new Filme (2,"Justice League Synder Cut", new GregorianCalendar(2021, Calendar.MARCH,7),
+        Filme filme = new Filme("Justice League Synder Cut", new GregorianCalendar(2021, Calendar.MARCH,7),
                 GeneroFilme.FICCAO, "Liga da justiça melhorada", true);
         try{
             dao.create(filme);
@@ -37,7 +37,7 @@ public class FilmeDaoTeste {
 
         //Pesquisar e exibir os dados
         try{
-            filme = dao.findById(1);
+            filme = dao.findById(3);
             JOptionPane.showMessageDialog(null, filme.getNome(), "Pesquisar", 1);
         }catch (FilmeNotFoundException e){
             JOptionPane.showMessageDialog(null, e.getMessage(), "Pesquisar", 1);
@@ -55,7 +55,7 @@ public class FilmeDaoTeste {
 
         //Remover
         try{
-            dao.remove(2);
+            dao.remove(3);
             dao.commit();
             JOptionPane.showMessageDialog(null,"Filme removido com sucesso!", "Remover", 1);
         }catch (FilmeNotFoundException | CommitException e){
