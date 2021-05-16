@@ -16,6 +16,8 @@
 			<property name="javax.persistence.jdbc.user" value="rm85619" />
 			<property name="javax.persistence.jdbc.password" value="010101" />
 			<property name="javax.persistence.jdbc.url" value="jdbc:oracle:thin:@oracle.fiap.com.br:1521:orcl" />
+
+
 		</properties>
 	</persistence-unit>
 </persistence>

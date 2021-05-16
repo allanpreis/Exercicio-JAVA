@@ -10,6 +10,7 @@ public class Produto {
 
     @Id
     @Column(name = "COD_PRODUTO", length = 5)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "produto")
     private int codigo;
 
     @Column(name = "NOME_PROODUTO", nullable = false, length = 30)
@@ -40,6 +41,10 @@ public class Produto {
     @Column(name = "DATA_SAIDA")
     private Calendar dataSaida;
 
+    @ManyToOne
+    @JoinColumn(name="cd_estabelecimento")
+    private Estabelecimento estabelecimento;
+
     public Produto(){}
 
     public Produto(int codigo, String nomeProduto, Categoria categoria, String descricao, int quantidadeProduto, double valor, Calendar validade, Calendar dataEntrada, Calendar dataSaida) {
@@ -52,6 +57,14 @@ public class Produto {
         this.validade = validade;
         this.dataEntrada = dataEntrada;
         this.dataSaida = dataSaida;
+    }
+
+    public Estabelecimento getEstabelecimento() {
+        return estabelecimento;
+    }
+
+    public void setEstabaelecimento(Estabelecimento estabelecimento) {
+        this.estabelecimento = estabelecimento;
     }
 
     public int getCodigo() {

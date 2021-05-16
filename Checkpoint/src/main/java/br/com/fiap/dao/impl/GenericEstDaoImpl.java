@@ -1,14 +1,13 @@
 package br.com.fiap.dao.impl;
 
-import br.com.fiap.dao.GenericEstDao;
-import br.com.fiap.dao.GenericUserDao;
+import br.com.fiap.dao.GenericDao;
 import br.com.fiap.exception.CommitException;
 import br.com.fiap.exception.EntityNotFoundException;
 
 import javax.persistence.EntityManager;
 import java.lang.reflect.ParameterizedType;
 
-public abstract class GenericEstDaoImpl<E, P> implements GenericUserDao<E, P> {
+public abstract class GenericEstDaoImpl<E, P> implements GenericDao<E, P> {
 
     private EntityManager em;
     private Class<E> clazz;

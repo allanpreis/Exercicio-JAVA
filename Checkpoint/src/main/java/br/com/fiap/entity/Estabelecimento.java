@@ -1,6 +1,8 @@
 package br.com.fiap.entity;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "CADASTRO_ESTABELECIMENTO")
@@ -8,6 +10,7 @@ public class Estabelecimento {
 
     @Id
     @Column(name = "COD_ESTABELECIMENTO", length = 5)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "estabelecimento")
     private int codigo;
 
     @Column(name = "NOME_FANTASIA", nullable = false, length = 50)
@@ -29,8 +32,19 @@ public class Estabelecimento {
     @Column(name = "TELEFONE", length = 12)
     private int telefone;
 
+    @OneToMany(mappedBy = "produtos", cascade = CascadeType.PERSIST)
+    private List<Produto> produtos = new ArrayList<Produto>();
+
+    @ManyToOne
+    @JoinColumn(name="cd_usuario")
+    private Usuario usuario;
+
+    @OneToOne(mappedBy = "saldo")
+    private Saldo saldo;
+
     public Estabelecimento(){
     }
+
 
     public Estabelecimento(int codigo, String nomeFantasia, String razaoSocial, int cnpj, Ramo ramo, String endereco, int telefone) {
         this.codigo = codigo;
@@ -40,6 +54,35 @@ public class Estabelecimento {
         this.ramo = ramo;
         this.endereco = endereco;
         this.telefone = telefone;
+    }
+
+    public Saldo getSaldo() {
+        return saldo;
+    }
+
+    public void setSaldo(Saldo saldo) {
+        this.saldo = saldo;
+    }
+
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
+
+    public List<Produto> getProdutos() {
+        return produtos;
+    }
+
+    public void setProdutos(List<Produto> produtos) {
+        this.produtos = produtos;
+    }
+
+    public void addProduto(Produto produto) {
+        produtos.add(produto);
+        produto.setEstabaelecimento(this);
     }
 
     public int getCodigo() {
